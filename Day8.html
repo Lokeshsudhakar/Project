@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa; 
+        }
+        header {
+            background-color: #0d3b66;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffc107;
+        }
+        .hero {
+            background-image: linear-gradient(rgba(13, 59, 102, 0.75), rgba(13, 59, 102, 0.75)), 
+                              url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #ffc107;
+            color: #111;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e0a800;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .stat-number {
+            color: #0d3b66;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #555;
+            font-size: 14px;
+        }
+        .featured-departments {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: #0d3b66;
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img {
+            height: 180px;
+            width: 100%;
+        }
+
+        .img-engineering { background: linear-gradient(to bottom right, #ff6b52, #ff9b66); }
+        .img-business { background: linear-gradient(to bottom right, #407cff, #6bceff); }
+        .img-arts { background: linear-gradient(to bottom right, #0bb870, #1de79a); }
+
+        .card-content {
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            color: #0d3b66;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            color: #0d3b66;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #262626;
+            color: #e0e0e0;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            margin: 10px 20px;
+            min-width: 200px;
+        }
+
+        .footer-col h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .footer-col p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-bottom hr {
+            border: none;
+            border-top: 1px solid #444;
+            margin-bottom: 25px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Horizon University</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Campus Life</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Empowering Your Future</h1>
+        <p>Discover a world-class education designed to innovate, inspire, and elevate your career to the next level.</p>
+        <a href="#" class="cta-button">Apply Now</a>
+    </section>
+
+    <section class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Undergraduate Programs</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15:1</div>
+            <div class="stat-label">Student-to-Faculty Ratio</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Graduate Employment</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Student Clubs & Organizations</div>
+        </div>
+    </section>
+
+    <section class="featured-departments">
+        <h2 class="section-title">Featured Departments</h2>
+        <div class="cards-container">
+            
+            <div class="card">
+                <div class="card-img img-engineering"></div>
+                <div class="card-content">
+                    <h3 class="card-title">College of Engineering</h3>
+                    <p class="card-text">Build the future with our cutting-edge labs and industry-experienced faculty. Programs in Mechanical, Civil, and Computer Engineering.</p>
+                    <a href="#" class="card-link">Learn More &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img img-business"></div>
+                <div class="card-content">
+                    <h3 class="card-title">School of Business</h3>
+                    <p class="card-text">Develop leadership and entrepreneurial skills to thrive in the global marketplace. AACSB-accredited programs.</p>
+                    <a href="#" class="card-link">Learn More &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img img-arts"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Arts & Sciences</h3>
+                    <p class="card-text">Explore your passions with diverse programs in Humanities, Biological Sciences, and Digital Arts.</p>
+                    <a href="#" class="card-link">Learn More &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Horizon University</h3>
+                <p>123 University Blvd.<br>
+                Innovation City, ST 12345<br>
+                Phone: (555) 123-4567</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Financial Aid</a></li>
+                    <li><a href="#">Student Portal</a></li>
+                    <li><a href="#">Alumni</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Campus Map</a></li>
+                    <li><a href="#">Career Center</a></li>
+                    <li><a href="#">Athletics</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <hr>
+            <p>&copy; 2026 Horizon University. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
