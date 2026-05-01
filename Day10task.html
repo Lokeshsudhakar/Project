@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .profile-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #000000;
+        }
+
+        .profile-card h2 {
+            font-size: 26px;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+
+        .profile-card .role {
+            font-size: 15px;
+            color: #000000;
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .profile-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left; 
+        }
+
+        .profile-details li {
+            margin-bottom: 10px;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        .profile-details li i {
+            color: #4a90e2;
+            font-size: 18px;
+            width: 30px; 
+            text-align: center;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="Assets/WhatsApp Image 2026-04-20 at 16.26.10.jpeg" alt="Profile Picture" class="profile-pic">
+        
+        <h2>LOKESH</h2>
+        <p class="role">Software Engineer</p>
+        
+        <ul class="profile-details">
+            <li>
+                <i class="fa-solid fa-envelope"></i>
+                lokeshsudhakar218@gmail.com
+            </li>
+            <li>
+                <i class="fa-solid fa-phone"></i>
+                +91 9177658206
+            </li>
+            <li>
+                <i class="fa-solid fa-location-dot"></i>
+                HYDERABAD, INDIA
+            </li>
+            <li>
+                <i class="fa-solid fa-globe"></i>
+                www.lokeshsudhakar.dev
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
