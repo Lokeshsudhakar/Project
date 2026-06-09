@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body></body>
+
+    <center>
+        <div style="background-color: #75778a; width: 800px; padding: 30px; border-radius: 5px; border: 2px solid #333; text-align: left;">
+            
+            <center>
+                <h2 style="color: #000;"><b>STUDENT REGISTRATION FORM</b></h2>
+            </center>
+
+            <form action="portfolio.html">
+                
+                <p>
+                    <strong>Student Name:</strong><br>
+                    <input type="text" name="student_name" placeholder="Ur Name" style="width: 60%; height: 30px; margin-top: 5px;" required>
+                </p>
+
+                <p>
+                    <b>Father Name:</b><br>
+                    <input type="text" name="father_name" placeholder="Ur Father Name" style="width: 60%; height: 30px; margin-top: 5px;" required>
+                </p>
+
+                <p>
+                    <b>Mother Name:</b><br>
+                    <input type="text" name="mother_name" placeholder="Ur Mother Name" style="width: 60%; height: 30px; margin-top: 5px;" required>
+                </p>
+
+                <p>
+                    <strong>Student Age:</strong> 
+                    <input type="number" name="age" placeholder="Age" style="width: 50px;height: 20px;" required>
+                    <strong>DOB:</strong> 
+                    <input type="date" name="dob" required>
+                </p>
+
+                <p>
+                    <b>Gender:</b><br>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </p>
+
+                <p>
+                    <strong>Department:</strong><br>
+                    <input type="radio" name="dept" value="CSE"> <b>CSE</b>
+                    <input type="radio" name="dept" value="ECE"> <b>ECE</b>
+                    <input type="radio" name="dept" value="IT"> <b>IT</b>
+                </p>
+
+                <p>
+                    <b>Course:</b><br>
+                    <select name="course" style="width: 60%; height: 30px;">
+                        <option>CYBER SECURITY</option>
+                        <option>DATA SCIENCE</option>
+                        <option>ARTIFICIAL INTELLIGENCE</option>
+                    </select>
+                </p>
+
+                <p>
+                    <strong>Skills:</strong><br>
+                    <input type="checkbox" name="skill" value="python"> Python
+                    <input type="checkbox" name="skill" value="js"> JavaScript
+                    <input type="checkbox" name="skill" value="aws"> AWS
+                </p>
+
+                <p>
+                    <b>Mobile No:</b><br>
+                    <input type="number" name="mobile" placeholder="Mobile Number" style="width: 60%; height: 30px;" required>
+                </p>
+
+                <p>
+                    <strong>Upload Photo:</strong><br>
+                    <input type="file" name="photo" required>
+                </p>
+
+                <p><b>Audio Captcha:</b><br></p>
+
+                <p style="background-color: #eeeeee; padding: 10px; width: 40%;">
+                    <audio controls style="height: 30px;">
+                        <source src="Assets/html audio.mp3" type="audio/mpeg">
+                    </audio><br>
+                </p>
+                <p><input type="text" name="captcha" placeholder="Type what you hear" style="height: 30px;" required></p>
+
+                <center>
+                    <button type="submit" style="background-color: #333; color: #fff; padding: 10px 30px; border: 2px solid #333; border-radius: 4px;">Submit</button>
+                </center>
+
+            </form>
+        </div>
+    </center>
+
+</body>
+</html>
