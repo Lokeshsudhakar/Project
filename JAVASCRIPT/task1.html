@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Marks Calculator</title>
+    <style>
+        .op {
+            background-color: #f5cbb2;
+            padding: 25px;
+            margin: 50px;
+            border-radius: 10px;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+    <div class="op">
+        <h2>Marks Calculator</h2>
+
+        <label>Student Name:</label>
+        <input type="text" id="nameInput"><br><br>
+
+        <label>Subject 1 Marks:</label>
+        <input type="number" id="marks1Input"><br><br>
+
+        <label>Subject 2 Marks:</label>
+        <input type="number" id="marks2Input"><br><br>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <br><br>
+
+        <div id="outputDiv"></div>
+    </div>
+    </center>
+
+    <script>
+        function calculate() {
+
+            let name = document.getElementById("nameInput").value;
+            let m1 = Number(document.getElementById("marks1Input").value);
+            let m2 = Number(document.getElementById("marks2Input").value);
+
+
+            let OUTPUT = "";
+
+
+            if (name === "" || isNaN(m1) || isNaN(m2)) {
+                document.getElementById("outputDiv").innerHTML = "Please enter valid details.";
+                return; 
+            }
+
+
+            OUTPUT += "Results for " + name + "<br><br>";
+
+            let totalmarks = m1 + m2;
+            let avgmarks = totalmarks / 2;
+
+            OUTPUT += "Total Marks = " + totalmarks + "<br>";
+            OUTPUT += "Average Marks = " + avgmarks + "<br>";
+
+            let totalWithBonus = totalmarks + 5;
+            OUTPUT += "Total with Bonus Marks = " + totalWithBonus + "<br><br>";
+
+
+
+
+            if (m1 > m2) {
+                OUTPUT += "Subject 1 has higher marks<br>";
+            } else if (m2 > m1) {
+                OUTPUT += "Subject 2 has higher marks<br>";
+            } else {
+                OUTPUT += "Both subjects have equal marks<br>";
+            }
+
+
+
+
+
+            if (m1 > 35 && m2 > 35) {
+                OUTPUT += "Both are passed<br>";
+            } else if (m1 > 90 || m2 > 90) {
+                OUTPUT += "One of the subjects is A grade<br>";
+            }
+
+
+            
+            let incMarks1 = m1;
+            incMarks1++;
+            let decMarks2 = m2;
+            decMarks2--;
+
+            OUTPUT += "Subject 1 (+1) = " + incMarks1 + "<br>";
+            OUTPUT += "Subject 2 (-1) = " + decMarks2 + "<br><br>";
+
+
+
+
+
+            if (avgmarks >= 35) {
+                OUTPUT += "Student has passed<br>";
+            } else {
+                OUTPUT += "Student has failed<br>";
+            }
+
+            if (avgmarks >= 90) {
+                OUTPUT += "A Grade<br>";
+            } else if (avgmarks >= 75) {
+                OUTPUT += "B Grade<br>";
+            } else if (avgmarks >= 60) {
+                OUTPUT += "C Grade<br>";
+            } else if (avgmarks >= 35) {
+                OUTPUT += "D Grade<br>";
+            } else {
+                OUTPUT += "Fail<br>";
+            }
+
+
+            
+            document.getElementById("outputDiv").innerHTML = OUTPUT;
+        }
+    </script>
+
+</body>
+
+</html>

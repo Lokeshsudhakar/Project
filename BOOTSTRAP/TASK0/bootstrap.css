@@ -1,0 +1,235 @@
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #fff;
+    color: #212529;
+}
+
+.navbar {
+    z-index: 10;
+}
+
+.navbar-brand {
+    letter-spacing: 0.08em;
+}
+
+.nav-link {
+    color: #495057 !important;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #0d6efd !important;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 0.18em;
+}
+
+.hero-sec {
+    min-height: 88vh;
+    background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+    padding-top: 4rem;
+}
+
+.page-hero {
+    min-height: 60vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.about-hero {
+    background: linear-gradient(rgba(10, 25, 47, 0.65), rgba(10, 25, 47, 0.65)), url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.destinations-hero {
+    background: linear-gradient(rgba(8, 32, 50, 0.65), rgba(8, 32, 50, 0.65)), url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.contact-hero {
+    background: linear-gradient(rgba(4, 23, 45, 0.7), rgba(4, 23, 45, 0.7)), url('https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.features-sec,
+.about-preview,
+.destinations-sec,
+.stories-sec,
+.package-card,
+.contact-info,
+.faq-sec {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.feature-card,
+.package-card,
+.contact-card,
+.faq-card,
+.team-card,
+.destination-card,
+.story-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover,
+.package-card:hover,
+.contact-card:hover,
+.faq-card:hover,
+.team-card:hover,
+.destination-card:hover,
+.story-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.destination-card {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.destination-card img,
+.story-card img,
+.team-card img {
+    object-fit: cover;
+    width: 100%;
+    height: 260px;
+}
+
+.destination-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(11, 19, 38, 0) 0%, rgba(11, 19, 38, 0.88) 90%);
+    padding: 1.6rem;
+    transition: transform 0.3s ease;
+    transform: translateY(40px);
+}
+
+.destination-card:hover .destination-overlay {
+    transform: translateY(0);
+}
+
+.destination-img,
+.story-img {
+    transition: transform 0.4s ease;
+}
+
+.destination-card:hover .destination-img,
+.story-card:hover .story-img,
+.team-card:hover img {
+    transform: scale(1.04);
+}
+
+.story-card {
+    overflow: hidden;
+}
+
+.story-card .badge {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.8rem;
+}
+
+.story-card .p-4 {
+    min-height: 170px;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #4f46e5 100%);
+}
+
+.footer {
+    background: #0c1f34;
+}
+
+.footer a {
+    color: #f8f9fa;
+}
+
+.contact-card .icon-box,
+.package-card .icon-box {
+    border-radius: 18px;
+    width: 58px;
+    height: 58px;
+}
+
+.form-control,
+.form-select,
+textarea.form-control {
+    border-radius: 0.85rem;
+    padding: 1rem;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.85);
+    color: #fff;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.abt-img {
+    width: 500px;
+    height: 400px;
+}
+
+
+
+
+
+
+.tracking-wide {
+    letter-spacing: 1px;
+}
+
+.custom-footer-link {
+    display: inline-block;
+    transition: all 0.25s ease-in-out;
+}
+
+.custom-footer-link:hover {
+    color: #ffffff ;
+}
+
+.custom-social-link {
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-social-link:hover {
+    opacity: 1;
+    color: #0dcaf0 ;
+    transform: translateY(-2px);
+}
+
+/* Input layout optimization */
+.custom-input:focus {
+    background-color: rgba(255, 255, 255, 0.05) ;
+    border-color: #0dcaf0 ;
+    box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25) ;
+    color: #fff ;
+}
+
+.footer .custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) ;
+}
