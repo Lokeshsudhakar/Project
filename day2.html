@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Dashboard</title>
+</head>
+<body>
+
+    <h1>My Learning Dashboard</h1>
+
+    <table style="width: 100%;">
+        
+        <caption style="font-size: 1.5em; margin-bottom: 10px; font-weight: bold; color: #333;">Current Course Overview</caption>
+        
+        <thead>
+            <tr style="text-align: left; vertical-align: middle; background-color: red;">
+                <th style="border: 3px solid black; padding: 15px;">Course Name</th>
+                <th style="border: 3px solid black; padding: 15px;">Description</th>
+                <th style="border: 3px solid black; padding: 15px;">Thumbnail</th>
+                <th style="border: 3px solid black; padding: 15px;">Demo Video</th>
+                <th style="border: 3px solid black; padding: 15px;">Audio Note</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr style="text-align: left; vertical-align: middle; background-color: rgb(117, 117, 133);">
+                <td style="border: 1px solid black; padding: 15px;"><strong>HTML Basics</strong></td>
+                <td style="border: 1px solid black; padding: 15px;">Learn the foundational building blocks of the web, including page structure, semantic tags, and links.</td>
+                <td style="border: 1px solid black; padding: 15px;"><img src="Assets/html image.jpg" alt="HTML5 Thumbnail" width="100" style="border-radius: 4px;"></td>
+                <td style="border: 1px solid black; padding: 15px;">
+                    <video width="200" controls>
+                        <source src="Assets/html video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+                <td style="border: 1px solid black; padding: 15px;">
+                    <audio controls>
+                        <source src="Assets/html audio.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr style="text-align: left; vertical-align: middle; background-color: rgb(144, 150, 144);">
+                <td style="border: 1px solid black; padding: 15px;"><strong>CSS Styling</strong></td>
+                <td style="border: 1px solid black; padding: 15px;">Discover how to style your web pages with colors, beautiful layouts, flexbox, and responsive design.</td>
+                <td style="border: 1px solid black; padding: 15px;"><img src="Assets/css image.png" alt="CSS3 Thumbnail" width="100" style="border-radius: 4px;"></td>
+                <td style="border: 1px solid black; padding: 15px;">
+                    <video width="200" controls>
+                        <source src="Assets/css video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+                <td style="border: 1px solid black; padding: 15px;">
+                    <audio controls>
+                        <source src="Assets/css audio.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr style="text-align: left; vertical-align: middle; background-color: rgb(155, 155, 142);">
+                <td style="border: 1px solid black; padding: 15px;"><strong>JavaScript Introduction</strong></td>
+                <td style="border: 1px solid black; padding: 15px;">Add dynamic interactivity to your websites using variables, functions, and DOM manipulation.</td>
+                <td style="border: 1px solid black; padding: 15px;"><img src="Assets/js image.jpg" alt="JavaScript Thumbnail" width="100" style="border-radius: 4px;"></td>
+                <td style="border: 1px solid black; padding: 15px;">
+                    <video width="200" controls>
+                        <source src="Assets/js video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+                <td style="border: 1px solid black; padding: 15px;">
+                    <audio controls>
+                        <source src="Assets/js audio.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center; margin-top: 50px; margin-bottom: 50px; font-family: Arial, sans-serif;">
+        <h2>MAP</h2>
+        <iframe 
+            src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed" 
+            width="800" 
+            height="450" 
+            style="border: 2px solid #770000; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+        <h2 style="margin-bottom: 15px;">Course Gallery</h2>
+        
+        <marquee direction="right" style="width: 100%; padding: 50px; background-color: #000000;">
+            <img src="Assets/html image.jpg" alt="Gallery Image 1" height="100" style="margin-right: 20%;">
+            <img src="Assets/css image.png" alt="Gallery Image 2" height="100" style="margin-right: 20%;">
+            <img src="Assets/js image.jpg" alt="Gallery Image 3" height="100" style="margin-right: 20%;">
+        </marquee>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #475569;
+    --text-dark: #0f172a;
+    --text-light: #f8fafc;
+    --bg-white: #ffffff;
+    --accent-color: #f59e0b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f1f5f9;
+    color: var(--text-dark);
+    line-height: 1.5;
+    letter-spacing: normal;
+}
+
+.hero-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 4rem 8% 4rem 8%;
+    
+    background-color: #fafafa;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 40% auto;
+    background-attachment: scroll;
+    
+    overflow: hidden;
+    visibility: visible;
+    opacity: 1;
+}
+
+.hero-decoration {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    z-index: 1;
+    
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.05);
+    
+    border: 2px dashed var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    max-width: 650px;
+    text-align: left;
+}
+
+.hero-tagline {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    
+    margin-bottom: 1.25rem;
+    padding: 0.35rem 1rem;
+    background-color: #e0f2fe;
+    border-radius: 9999px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    word-break: break-word;
+    word-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--secondary-color);
+    margin-bottom: 2.5rem;
+    white-space: normal;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    
+    border-radius: 0.5rem;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+}
+
+.hero-visual {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    
+    max-width: 500px;
+    width: 100%;
+}
+
+.grid-card {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    
+    border-top: 4px solid var(--accent-color);
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    border-left: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.grid-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
