@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Ticket Price Calculator</title>
+    <link rel="stylesheet" href="7.css" />
+  </head>
+  <body>
+    <div class="box">
+      <h1>Movie Ticket Pricing</h1>
+
+      <label for="ageInput">Enter Age:</label>
+      <input type="number" id="ageInput" placeholder="Enter age" min="0" />
+
+      <select id="showDropdown">
+        <option value="matinee">Matinee Show</option>
+        <option value="evening">Evening Show</option>
+      </select>
+
+      <button onclick="checkPrice()">Check Price</button>
+
+      <p id="result">Ticket Price: Unknown</p>
+    </div>
+  </body>
+  <script src="7.js"></script>
+</html>
