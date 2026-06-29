@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Smart Pizza</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 950px;
+      width: 100%;
+      align-items: start;
+    }
+
+    .config-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #000;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .select-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #333;
+      border-radius: 6px;
+      background-color: #fff;
+      appearance: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .select-wrapper::after {
+      content: '▲';
+      font-size: 12px;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+      pointer-events: none;
+    }
+
+    .size-group {
+      display: flex;
+      gap: 10px;
+      max-width: 400px;
+    }
+
+    .size-btn {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #333;
+      background-color: #fffcf7;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .size-btn.active {
+      background-color: #e05a36;
+      color: white;
+      border-color: #e05a36;
+    }
+
+    .toppings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      max-width: 400px;
+    }
+
+    .topping-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .topping-label input {
+      width: 20px;
+      height: 20px;
+      accent-color: #000;
+      cursor: pointer;
+    }
+
+    .receipt-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+    }
+
+    .receipt-card {
+      background: white;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      padding: 30px 24px;
+      position: relative;
+    }
+
+
+    .receipt-title {
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .divider {
+      border-top: 2px dotted #aaa;
+      margin: 14px 0;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .receipt-row .label {
+      color: #333;
+    }
+
+    .receipt-row .value {
+      font-weight: 700;
+    }
+
+    .total-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .total-label {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .total-price {
+      font-size: 36px;
+      font-weight: 900;
+    }
+
+    .order-btn {
+      width: 100%;
+      max-width: 400px;
+      background-color: #3f9b63;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(51, 51, 51, 0.12);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #e05a36;
+      color: white;
+      font-size: 14px;
+    }
+
+    .topping-label i {
+      color: #e05a36;
+      font-size: 16px;
+      width: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .receipt-panel {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="config-panel">
+      <h2><span class="icon-badge"><i class="fa-solid fa-pizza-slice"></i></span> BUILD YOUR SMART PIZZA</h2>
+
+      <div class="section-card">
+        <div class="section-heading">
+          <span class="icon-badge"><i class="fa-solid fa-bread-slice"></i></span>
+          <div class="section-title">Crust</div>
+        </div>
+        <div class="select-wrapper">
+          <select id="crustSelect">
+            <option value="thin">Thin ($8.00)</option>
+            <option value="regular">Regular ($10.00)</option>
+            <option value="stuffed">Stuffed ($12.00)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-heading">
+          <span class="icon-badge"><i class="fa-solid fa-ruler-combined"></i></span>
+          <div class="section-title">Size</div>
+        </div>
+        <div class="size-group">
+          <button class="size-btn" data-size="small">Small</button>
+          <button class="size-btn" data-size="medium">Medium</button>
+          <button class="size-btn active" data-size="large">Large</button>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-heading">
+          <span class="icon-badge"><i class="fa-solid fa-list-check"></i></span>
+          <div class="section-title">Toppings</div>
+        </div>
+        <div class="toppings-grid">
+          <label class="topping-label"><input type="checkbox" value="cheese" checked><i class="fa-solid fa-cheese"></i> Cheese</label>
+          <label class="topping-label"><input type="checkbox" value="mushrooms" checked><i class="fa-solid fa-fan"></i> Mushrooms</label>
+          <label class="topping-label"><input type="checkbox" value="peppers" checked><i class="fa-solid fa-pepper-hot"></i> Peppers</label>
+          <label class="topping-label"><input type="checkbox" value="pepperoni"><i class="fa-solid fa-fire"></i> Pepperoni</label>
+          <label class="topping-label"><input type="checkbox" value="chicken"><i class="fa-solid fa-drumstick-bite"></i> Chicken</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="receipt-panel">
+      <h2><span class="icon-badge"><i class="fa-solid fa-receipt"></i></span> YOUR RECEIPT</h2>
+      <div class="receipt-card">
+        <div class="receipt-title" id="receiptHeader">LARGE STUFFED CRUST PIZZA</div>
+        <div class="divider"></div>
+
+        <div class="receipt-row">
+          <span class="label">Base:</span>
+          <span class="value" id="basePrice">$12.00</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">Toppings:</span>
+          <span class="value" id="toppingsPrice">$2.50</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">Subtotal:</span>
+          <span class="value" id="subtotalPrice">$14.50</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">Discount:</span>
+          <span class="value" id="discountValue">10% (SAVE10)</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="total-section">
+          <div class="total-label">FINAL<br>TOTAL</div>
+          <div class="total-price" id="finalTotal">$13.05</div>
+        </div>
+      </div>
+
+      <button class="order-btn">Place Order</button>
+    </div>
+  </div>
+
+  <script>
+    const MENU = {
+      crust: { thin: 8.00, regular: 10.00, stuffed: 12.00 },
+      size: { small: 1.0, medium: 1.5, large: 2.0 },
+      toppings: { cheese: 1.0, pepperoni: 1.0, mushrooms: 1.0, chicken: 1.0, peppers: 1.0 }
+    };
+
+    const calculatePrice = (crustType, sizeMultiplier) => {
+      const baseCrustPrice = MENU.crust[crustType] || MENU.crust.regular;
+      const multiplier = MENU.size[sizeMultiplier] || MENU.size.medium;
+      return baseCrustPrice * multiplier;
+    };
+
+    const calculateToppingsPrice = (selectedToppings) => {
+      return selectedToppings.reduce((total, topping) => {
+        return total + (MENU.toppings[topping] || 0);
+      }, 0);
+    };
+
+    const calculateTotalPrice = (baseCalcFunc, toppingCalcFunc) => {
+      return (crustType, sizeMultiplier, selectedToppings) => {
+        const basePrice = baseCalcFunc(crustType, sizeMultiplier);
+        const toppingsPrice = toppingCalcFunc(selectedToppings);
+        return {
+          basePrice: basePrice,
+          toppingsPrice: toppingsPrice,
+          subtotal: basePrice + toppingsPrice
+        };
+      };
+    };
+
+    const getPizzaBill = calculateTotalPrice(calculatePrice, calculateToppingsPrice);
+
+    const crustSelect = document.getElementById('crustSelect');
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    const toppingCheckboxes = document.querySelectorAll('.toppings-grid input');
+
+    const receiptHeader = document.getElementById('receiptHeader');
+    const basePriceUI = document.getElementById('basePrice');
+    const toppingsPriceUI = document.getElementById('toppingsPrice');
+    const subtotalPriceUI = document.getElementById('subtotalPrice');
+    const finalTotalUI = document.getElementById('finalTotal');
+
+    let currentSize = 'large';
+
+    crustSelect.addEventListener('change', updateBill);
+
+    sizeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSize = btn.getAttribute('data-size');
+        updateBill();
+      });
+    });
+
+    toppingCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateBill);
+    });
+
+    function updateBill() {
+      const crust = crustSelect.value;
+      const activeToppings = [];
+
+      toppingCheckboxes.forEach(cb => {
+        if (cb.checked) activeToppings.push(cb.value);
+      });
+
+      const billBreakdown = getPizzaBill(crust, currentSize, activeToppings);
+      const discountAmount = billBreakdown.subtotal * 0.10;
+      const finalCalculatedTotal = billBreakdown.subtotal - discountAmount;
+
+      receiptHeader.textContent = `${currentSize} ${crust} crust pizza`.toUpperCase();
+      basePriceUI.textContent = `$${billBreakdown.basePrice.toFixed(2)}`;
+      toppingsPriceUI.textContent = `$${billBreakdown.toppingsPrice.toFixed(2)}`;
+      subtotalPriceUI.textContent = `$${billBreakdown.subtotal.toFixed(2)}`;
+      finalTotalUI.textContent = `$${finalCalculatedTotal.toFixed(2)}`;
+    }
+
+    updateBill();
+  </script>
+
+</body>
+
+</html>
