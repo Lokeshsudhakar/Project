@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Color Card</title>
+    <style>
+        body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
+}
+
+#card{
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+button{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: orange;
+    color: black;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="card">
+        <h2 id="heading">HELLOO</h2>
+
+        <button onclick="changeCardColor()">
+            Change Card Color
+        </button>
+
+        <button onclick="changeHeadingColor()">
+            Change Heading Color
+        </button>
+
+        <button onclick="resetCard()">
+            Reset
+        </button>
+    </div>
+
+ <script>
+// We don't need the 'Time' variable anymore since we aren't using intervals!
+
+function changeCardColor(){
+    const colors = ["red", "blue", "green", "yellow", "pink"];
+    let card = document.getElementById("card");
+    
+    // Pick a random index exactly once
+    let randomIndex = Math.floor(Math.random() * colors.length);
+
+    // Apply it immediately
+    card.style.backgroundColor = colors[randomIndex];
+}
+
+function changeHeadingColor(){
+    let heading = document.getElementById("heading");
+    const colors = ["red", "blue", "green", "yellow", "pink"];
+    let randomIndex = Math.floor(Math.random() * colors.length);
+    
+    heading.style.color = colors[randomIndex];
+}
+
+function resetCard(){
+    let card = document.getElementById("card");
+    let heading = document.getElementById("heading");
+    
+    // Resetting to your original CSS background color (grey) and heading (black)
+    card.style.backgroundColor = "grey"; 
+    heading.style.color = "black";
+}
+</script>
+
+</body>
+
+</html>
