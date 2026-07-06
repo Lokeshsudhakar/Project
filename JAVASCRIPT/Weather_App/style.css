@@ -1,0 +1,100 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1965&auto=format&fit=crop') no-repeat center center/cover;
+    position: relative;
+}
+
+.weather-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background: linear-gradient(135deg, #1f4e58, #113c4b);
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.search-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 6px 6px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box button {
+    width: 45px;
+    height: 45px;
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.search-box button i {
+    font-size: 20px;
+    color: #000000;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.temp {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.city {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.status {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.9;
+}
