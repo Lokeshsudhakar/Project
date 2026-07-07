@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1965&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 40px;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+            width: 100%;
+            max-width: 1100px;
+            align-items: center;
+        }
+        .weather-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            color: #ffffff;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        .search-box {
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 6px 6px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: 0;
+            outline: none;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .search-box button {
+            width: 45px;
+            height: 45px;
+            border: 0;
+            outline: none;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .search-box button:hover {
+            transform: scale(1.05);
+        }
+        .search-box button i {
+            font-size: 18px;
+            color: #113c4b;
+        }
+        .weather-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .temp {
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .city {
+            font-size: 36px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .status {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.95;
+            text-transform: capitalize;
+        }
+        .map-section {
+            flex: 1.2;
+            width: 100%;
+        }
+        #map-frame {
+            width: 100%;
+            height: 480px;
+            border-radius: 20px;
+            border: 3px solid rgb(65, 100, 65);
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <div class="weather-section">
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Search city..." />
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="weather-info">
+                <div class="temp">--°C</div>
+                <div class="city">Loading...</div>
+                <div class="status">Locating coordinates</div>
+            </div>
+        </div>
+        <div class="map-section">
+            <iframe id="map-frame" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+
+        const apikey = "351987d1f8eb19d9538c8b07a986ab6a";
+
+        const inputBox = document.querySelector("#city-input");
+        const searchBtn = document.querySelector("#search-btn");
+        const mapFrame = document.querySelector("#map-frame");
+
+        function updateMapByCityName(nameString) {
+            mapFrame.src = `https://maps.google.com/maps?q=${encodeURIComponent(nameString)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                try {
+                    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`);
+                    const data = await res.json();
+                    if (res.ok) {
+                        document.querySelector(".city").innerHTML = `${data.name}, ${data.sys.country}`;
+                        document.querySelector(".temp").innerHTML = `${Math.round(data.main.temp)}°C`;
+                        document.querySelector(".status").textContent = data.weather?.[0]?.main || "Clear";
+                        
+                        updateMapByCityName(data.name);
+                    }
+                } catch (error) {
+                    updateMapByCityName("Tirupati");
+                }
+            });
+        }
+
+        searchBtn.onclick = async () => {
+            const cityName = inputBox.value.trim();
+            if (!cityName) {
+                alert("Please enter a city name.");
+                return;
+            }
+
+            try {
+                const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apikey}&units=metric`);
+                const data = await res.json();
+
+                if (!res.ok) {
+                    if (data.cod === "404" || data.cod === 404) {
+                        alert("City not found!");
+                    } else {
+                        alert("Unable to fetch weather data.");
+                    }
+                    return;
+                }
+
+                document.querySelector(".city").innerHTML = `${data.name}, ${data.sys.country}`;
+                document.querySelector(".temp").innerHTML = `${Math.round(data.main.temp)}°C`;
+                document.querySelector(".status").textContent = data.weather?.[0]?.main || data.weather?.[0]?.description || "Unknown";
+                
+                updateMapByCityName(cityName);
+                
+            } catch (error) {
+                alert("An error occurred while fetching data.");
+            }
+        };
+
+        inputBox.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchBtn.click();
+        });
+    </script>
+</body>
+</html>
