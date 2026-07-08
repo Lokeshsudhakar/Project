@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0d1625 url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbtNLb5lFRGMpJtYuXKddtHt96xuzK-X9ClVSIYa0mmQ&s=10') no-repeat center center/cover; /* Keeps your cool background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    /* Slightly increased layout size (wider and taller) */
+    width: 800px; 
+    background: rgba(21, 31, 50, 0.95); /* Sleek dark theme matching your image */
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.chat-box {
+    /* Increased height to make room for messages */
+    height: 380px; 
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background-color: rgba(10, 17, 30, 0.7);
+}
+
+/* Custom scrollbar to keep it looking futuristic */
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.bot-message {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    margin: 8px 0;
+    line-height: 1.4;
+    display: inline-block;
+}
+
+.user-message {
+    background-color: #0066ff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    margin: 8px 0;
+    margin-left: auto; /* Pushes message to the right side */
+    text-align: left;
+    display: block;
+    width: fit-content;
+}
+
+/* INPUT AREA ARRANGEMENT */
+.input-area {
+    display: flex;
+    flex-direction: column; /* Stacks layout elements elegantly */
+    gap: 12px;
+}
+
+.inputs-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Styling the Text Input Field */
+input[type="text"] {
+    flex: 1;
+    padding: 12px 18px;
+    background: rgba(10, 17, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Clean Custom File Input Box */
+input[type="file"] {
+    background: rgba(10, 17, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    width: 25%;
+    box-sizing: border-box;
+}
+
+/* Custom styling for the "Choose File" inside the input block */
+input[type="file"]::-webkit-file-upload-button {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Beautiful Action Button */
+button {
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background-color: #0052cc;
+}
